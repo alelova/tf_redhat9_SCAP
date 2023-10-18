@@ -9,13 +9,13 @@ echo $server2 | sudo tee --append /etc/hosts
 ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R "lab-rh9-003"
 ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R "lab-rh9-004"
 #### set lab-rh9-003
-   ssh student@lab-rh9-003 sudo hostnamectl set-hostname lab-rh9-003 
+   ssh -o StrictHostKeyChecking=no student@lab-rh9-003 sudo hostnamectl set-hostname lab-rh9-003 
    ssh student@lab-rh9-003 sudo sed  -i '/lab/d' /etc/hosts
    ssh student@lab-rh9-003 "echo "$server1" | sudo tee --append /etc/hosts"
    ssh student@lab-rh9-003 "echo "$server2" | sudo tee --append /etc/hosts"
 
 #### set lab-rh9-004
-   ssh student@lab-rh9-004 sudo hostnamectl set-hostname lab-rh9-004 
+   ssh -o StrictHostKeyChecking=no student@lab-rh9-004 sudo hostnamectl set-hostname lab-rh9-004 
    ssh student@lab-rh9-004 sudo sed  -i '/lab/d' /etc/hosts
    ssh student@lab-rh9-004 "echo "$server1" | sudo tee --append /etc/hosts"
    ssh student@lab-rh9-004 "echo "$server2" | sudo tee --append /etc/hosts"
