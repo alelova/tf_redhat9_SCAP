@@ -19,3 +19,6 @@ ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R "lab-rh9-004"
    ssh student@lab-rh9-004 sudo sed  -i '/lab/d' /etc/hosts
    ssh student@lab-rh9-004 "echo "$server1" | sudo tee --append /etc/hosts"
    ssh student@lab-rh9-004 "echo "$server2" | sudo tee --append /etc/hosts"
+
+#### temporary shutdown lab-rh9-004
+   ssh student@lab-rh9-004 "sudo shutdown -h now"

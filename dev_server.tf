@@ -1,6 +1,6 @@
 variable "default_instance_type" {
   type    = string
-  default = "t2.micro"
+  default = "t3a.small"
 }
 variable "default_web_subnet"{
   type = string
