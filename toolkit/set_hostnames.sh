@@ -22,3 +22,7 @@ ssh-keygen -f "/home/ubuntu/.ssh/known_hosts" -R "lab-rh9-004"
 
 #### temporary shutdown lab-rh9-004
    ssh student@lab-rh9-004 "sudo shutdown -h now"
+
+#### clean puppet server to reconnect server
+   ssh student@puppet "sudo -i  puppetserver ca clean --certname lab-rh9-003.eu-central-1.compute.internal"
+   
