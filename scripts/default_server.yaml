@@ -25,10 +25,12 @@ packages:
   - openscap
   - scap-security-guide  
 
-# Sets the GOPATH & downloads the demo payload
+# Sets the basic config & install puppet-client
 runcmd:
   - echo "172.31.1.33 puppet" | sudo tee -a /etc/hosts
-  - echo -e "53 23 * * * root /usr/sbin/shutdown -h now \n" | sudo tee -a /etc/cron.d/autoshutdown
+  - echo -e "53 23 * * * root /usr/sbin/shutdown -h now \n" | sudo tee -a /etc/cron.d/autoshutdown 
   - sudo timedatectl set-timezone Europe/Amsterdam
   - sudo localectl set-locale LC_TIME=C.UTF-8
+  - sudo rpm -Uvh https://yum.puppet.com/puppet7-release-el-9.noarch.rpm
+  - sudo dnf install -y puppet-agent
 
